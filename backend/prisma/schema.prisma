@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
@@ -53,12 +48,12 @@ model Shopkeeper {
   id                   String                  @id @default(uuid())
   userId               String                  @unique
   user                 User                    @relation(fields: [userId], references: [id])
-  shopName             String                  @db.VarChar(20)
-  mobileNumber         Int
-  shopAddress          String
-  shopPhoto            String
+  shopName             String?                 @db.VarChar(20)
+  mobileNumber         Int?
+  shopAddress          String?
+  shopPhoto            String?
   creditLimit          Int                     @default(100000)
-  currentPaymentAmount Int
+  currentPaymentAmount Int                     @default(0)
   distributors         DistributorShopkeeper[]
   orders               Order[]
   payments             Payment[]
