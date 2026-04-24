@@ -20,6 +20,9 @@ const signupService = async (userData: signupDataType) => {
                 email: userData.email,
                 role: 'SHOPKEEPER',
                 password: await hashPassword(userData.password),
+            },
+            omit: {
+                password: true
             }
         })
 
@@ -37,9 +40,9 @@ const signupService = async (userData: signupDataType) => {
         return newUser
 
     } catch (error) {
-        if (error instanceof Error) {
-            throw new Error(error.message)
-        }
+
+        throw error
+
 
     }
 

@@ -1,17 +1,17 @@
 import { Response } from "express"
 
-const sendSucess = (res: Response, data: unknown, message: string, statusCode: number) => {
-    res.status(statusCode).json({
-        sucess: true,
+const sendSucess = (res: Response, data: unknown, statusCode: number ,message?: string,) => {
+    return res.status(statusCode).json({
+        success: true,
         data,
-        message
+        message: message || null
     })
 
 }
 
 const sendError = (res: Response, message: string, statusCode: number) => {
-    res.status(statusCode).json({
-        sucess: false,
+    return res.status(statusCode).json({
+        success: false,
         message
     })
 
