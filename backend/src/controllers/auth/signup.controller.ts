@@ -13,7 +13,7 @@ const signupContoller = async (req: Request, res: Response, next: NextFunction) 
 
     try {
         const user = await signupService(validationResult.data)
-        sendSucess(res, user, 201, "User created successfully")
+        return sendSucess(res, user, 201, "User created successfully")
     } catch (error) {
         next(error)
     }
