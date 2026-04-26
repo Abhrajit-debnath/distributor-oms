@@ -1,7 +1,8 @@
 import "dotenv/config"
 import express from "express"
-import authRoute from "./routes/auth/index"
-import shopkeeperRoute from "./routes/shopkeeper/shopkeeper.route"
+import authRoutes from "./routes/auth/index"
+import shopkeeperRoutes from "./routes/shopkeeper/shopkeeper.routes"
+import distributorRoutes from "./routes/distributor/distributor.routes"
 import errorHandler from "./utils/errorHandler"
 
 
@@ -18,9 +19,11 @@ if (!PORT) {
 }
 
 // Auth routes 
-app.use("/api/auth", authRoute)
+app.use("/api/auth", authRoutes)
 // Shopkeeper routes 
-app.use("/api/shopkeeper", shopkeeperRoute)
+app.use("/api/shopkeeper", shopkeeperRoutes)
+
+app.use("/api/distibutor",distributorRoutes)
 
 
 app.get("/health-check", (req, res) => {

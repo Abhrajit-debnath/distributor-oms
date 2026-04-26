@@ -11,7 +11,7 @@ type orderDataType = {
 
 
 const orderService = async (order: orderDataType) => {
-    const distributorProducts = await prisma.order.create({
+    const orderData = await prisma.order.create({
         data: {
             productId: order.productId,
             shopkeeperId: order.shopkeeperId,
@@ -21,7 +21,7 @@ const orderService = async (order: orderDataType) => {
         }
     })
 
-    return distributorProducts
+    return orderData
 }
 
 export default orderService

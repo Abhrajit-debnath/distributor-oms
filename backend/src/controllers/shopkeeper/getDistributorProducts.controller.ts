@@ -1,9 +1,9 @@
 import { Response, Request, NextFunction } from "express";
-import getdistributorProductsService from "../../services/shopkeeper/getDistributorProducts.service";
+import distributorProductsService from "../../services/shopkeeper/getDistributorProducts.service";
 import { sendSucess } from "../../utils/responseHandler";
 import { AppError } from "../../utils/AppError";
 
-const getdistributorProductsController = async (req: Request, res: Response, next: NextFunction) => {
+const distributorProductsController = async (req: Request, res: Response, next: NextFunction) => {
     //  const userId = req.user.id
     const distributorId = req.params.distributorId as string
 
@@ -12,7 +12,7 @@ const getdistributorProductsController = async (req: Request, res: Response, nex
     }
 
     try {
-        const distributorProducts = await getdistributorProductsService(distributorId)
+        const distributorProducts = await distributorProductsService(distributorId)
         if (distributorProducts.length === 0) {
             throw new AppError("No products found", 404)
         }
@@ -23,4 +23,4 @@ const getdistributorProductsController = async (req: Request, res: Response, nex
 
 }
 
-export default getdistributorProductsController
+export default distributorProductsController

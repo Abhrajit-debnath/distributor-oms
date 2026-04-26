@@ -8,19 +8,18 @@ const orderController = async (req: Request, res: Response, next: NextFunction) 
 
     const validationResult = orderSchema.safeParse(req.body)
 
-
     if (!validationResult.success) {
         return next(new AppError(validationResult.error.message, 400))
     }
 
     const distributorId = req.params.distributorId as string
     // const { id: shopKeeperId } = req.user
-    
+
 
     const orderRequest = {
         ...validationResult.data,
         distributorId,
-        shopkeeperId : '123',
+        shopkeeperId: '123',
     }
     try {
         const order = await orderService(orderRequest)
