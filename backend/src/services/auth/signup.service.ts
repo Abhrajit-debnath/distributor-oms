@@ -1,6 +1,6 @@
 import { prisma } from "../../lib/prisma";
 import type { signupDataType } from "../../schema/auth/auth.schema";
-import { hashPassword } from "../../../helpers/auth/hashing.helper"
+import { hashPassword } from "../../helpers/auth/hashing.helper"
 
 const signupService = async (userData: signupDataType) => {
     try {

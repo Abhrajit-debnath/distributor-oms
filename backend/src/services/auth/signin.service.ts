@@ -1,6 +1,6 @@
 import { prisma } from "../../lib/prisma";
 import type { signinDataType, roleEnum } from "../../schema/auth/auth.schema";
-import { verifyPassword } from "../../../helpers/auth/hashing.helper"
+import { verifyPassword } from "../../helpers/auth/hashing.helper"
 import { AppError } from "../../utils/AppError";
 
 const signinService = async (userData: signinDataType) => {

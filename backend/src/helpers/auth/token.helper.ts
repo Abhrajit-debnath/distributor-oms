@@ -2,7 +2,6 @@ import JWT from "jsonwebtoken"
 
 type payloadType = {
     id: string,
-    role: string
 }
 
 const generateToken = (payload: payloadType) => {

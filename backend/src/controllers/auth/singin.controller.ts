@@ -2,7 +2,7 @@ import { Response, Request, NextFunction } from "express";
 import { signinSchema } from "../../schema/auth/auth.schema";
 import { sendSucess } from "../../utils/responseHandler";
 import signinService from "../../services/auth/signin.service";
-import { generateToken } from "../../../helpers/auth/token.helper"
+import { generateToken } from "../../helpers/auth/token.helper"
 import { AppError } from "../../utils/AppError";
 
 const singinController = async (req: Request, res: Response, next: NextFunction) => {
@@ -16,7 +16,6 @@ const singinController = async (req: Request, res: Response, next: NextFunction)
 
         const payload = {
             id: user.id,
-            role: user.role
         }
 
         const token = await generateToken(payload)

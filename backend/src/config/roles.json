@@ -1,0 +1,16 @@
+{
+  "roles": [
+    {
+      "name": "SUPERADMIN",
+      "persmissions": ["create_distributor", "manage_distributor"]
+    },
+    {
+      "name": "SHOPKEEPER",
+      "persmissions": ["order_product", "see_distributors", "make_payment"]
+    },
+    {
+      "name": "DISTRIBUTOR",
+      "permissions": ["list_product", "update_status", "record_payment"]
+    }
+  ]
+}
