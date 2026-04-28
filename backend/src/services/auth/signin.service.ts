@@ -20,6 +20,7 @@ const signinService = async (userData: signinDataType) => {
         }
 
         const { password, ...safeUser } = user
+
         return safeUser
 
     } catch (error) {

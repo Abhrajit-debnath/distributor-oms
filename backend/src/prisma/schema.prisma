@@ -48,7 +48,7 @@ model Shopkeeper {
   id                   String                  @id @default(uuid())
   userId               String                  @unique
   user                 User                    @relation(fields: [userId], references: [id])
-  shopName             String?                 @db.VarChar(20)
+  shopName             String                  @db.VarChar(20)
   mobileNumber         Int?
   shopAddress          String?
   shopPhoto            String?
@@ -58,7 +58,6 @@ model Shopkeeper {
   orders               Order[]
   payments             Payment[]
 
-  @@unique([shopName, mobileNumber])
 }
 
 model DistributorShopkeeper {

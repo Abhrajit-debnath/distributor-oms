@@ -13,12 +13,12 @@ const singinController = async (req: Request, res: Response, next: NextFunction)
     }
     try {
         const user = await signinService(validationResult.data)
-
         const payload = {
             id: user.id,
+            role: user.role
         }
 
-        const token = await generateToken(payload)
+        const token = generateToken(payload)
 
         res.cookie("token", token, {
             httpOnly: true,

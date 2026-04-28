@@ -6,7 +6,7 @@ const authorizeMiddleware = (...permissions: string[]) => {
     return (req: Request, res: Response, next: NextFunction) => {
 
 
-        const userRole: Role = req.user?.role ?? "undefined"
+        const userRole = req.user?.role
 
 
 

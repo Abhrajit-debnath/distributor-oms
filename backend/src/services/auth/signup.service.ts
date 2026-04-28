@@ -1,6 +1,7 @@
 import { prisma } from "../../lib/prisma";
 import type { signupDataType } from "../../schema/auth/auth.schema";
 import { hashPassword } from "../../helpers/auth/hashing.helper"
+import { AppError } from "../../utils/AppError";
 
 const signupService = async (userData: signupDataType) => {
     try {
@@ -11,7 +12,7 @@ const signupService = async (userData: signupDataType) => {
         })
 
         if (existingUser) {
-            throw new Error("User already exists")
+            throw new AppError("User already exists",409)
         }
 
 
@@ -25,15 +26,17 @@ const signupService = async (userData: signupDataType) => {
                 password: true
             }
         })
+        
 
 
         if (!newUser) {
-            throw new Error("Unable to create user")
+            throw new AppError("Unable to create user",500)
         }
 
         const shopkeeperAccount = await prisma.shopkeeper.create({
             data: {
                 userId: newUser.id,
+                shopName : userData.shopName
             }
         })
 

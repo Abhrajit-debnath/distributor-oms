@@ -17,7 +17,6 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
             return next(new AppError("Invalid token payload", 401));
         }
 
-
         req.user = {
             id: decoded.id,
             role:decoded.role
