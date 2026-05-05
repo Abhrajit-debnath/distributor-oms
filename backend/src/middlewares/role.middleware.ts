@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import { AppError } from "../utils/AppError"
 import { roles } from "../config/roles.json"
-import { Role } from "../types/custom/user.types"
 const authorizeMiddleware = (...permissions: string[]) => {
     return (req: Request, res: Response, next: NextFunction) => {
 

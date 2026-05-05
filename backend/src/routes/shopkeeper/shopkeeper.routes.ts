@@ -10,6 +10,6 @@ router.get("/distibutors", distributorController)
 // fetch all products by distributorId
 router.get("/distributors/:distributorId/products", distributorProductsController)
 // fetch all orders by distributorId
-router.post("/distributors/:distributorId/orders",orderController)
+router.post("/distributors/:distributorId/orders", orderController)
 
 export default router
